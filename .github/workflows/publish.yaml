@@ -1,0 +1,43 @@
+name: Publish
+
+on:
+  release:
+    types: [created] # will be triggered when a NON-draft release is created and published.
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm ci
+      - run: npm test
+      - run: npm run compile
+      - run: |
+          mkdir "../artifact"
+          cp -r . "../artifact"
+          rm -rf "../artifact/.git"
+          rm -rf "../artifact/.github"
+          rm -rf "../artifact/node_modules"
+      - uses: actions/upload-artifact@v1
+        with:
+          name: package
+          path: ../artifact
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: https://registry.npmjs.org/
+      - uses: actions/download-artifact@v1
+        with:
+          name: package
+      - run: cd package && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
