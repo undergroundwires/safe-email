@@ -1,6 +1,6 @@
 {
   "name": "safe-email",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Easy way to obfuscate e-mails to protect them from spams through scraping bots",
   "main": "src/safe-email.js",
   "scripts": {
