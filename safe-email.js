@@ -7,7 +7,11 @@
     }
     const defaults = {
         body: "Hi!",
-        subject: window.location.hostname + window.location.pathname
+        subject: getEmailSubject()
+    }
+    function getEmailSubject() {
+        const currentLocation = window.location.hostname + window.location.pathname;
+        return currentLocation.endsWith('/') ? currentLocation.slice(0, -1) : currentLocation;
     }
     function obfuscateInnerHtml(text) {
         const chars = text.split('');
