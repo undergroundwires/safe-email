@@ -94,25 +94,19 @@ Any element that has **`data-email_b64`** property defined will have obfuscated 
 
 *[top↑](#safe-email)*
 
-## GitOps
-
-CI/CD is fully automated for this repo using different GIT events & GitHub actions.
-
-### On pull request
-
-![safe-email actions on PR](./img/on-pr.png)
-
-### On master
-
-![safe-email actions on master](./img/on-master.png)
-
-### On release
-
-![safe-email actions on release](./img/on-release.png)
+## Package contents
 
 The deployed packages includes a `dist/` folder that adds polyfills to the files and distributes them as:
 
 - minified (`.min.js`) files for production usage
 - non-minified (`.js`) files for debugging
+
+*[top↑](#safe-email)*
+
+## GitOps
+
+CI/CD is fully automated for this repo using different Git events & GitHub actions.
+
+![safe-email continuous integration and deployment flow](./img/gitops.png)
 
 *[top↑](#safe-email)*
