@@ -51,6 +51,10 @@ It's the simplest way. Just add it to your page:
 
 ## Usage
 
+### Encode your e-mail
+
+You'll need to base64 encode to get an obfuscated value for it. Feel free to use your own favorite tool or [safe-email generator](https://safe-email.netlify.app/) to base64 encode your e-mail.
+
 ### Examples
 
 #### Simplest
@@ -86,7 +90,7 @@ As icon is an inner HTML of the parent `<a>` your e-mail will not be rendered.
 
 | Property | Explanation | Required / Default |
 | -------- | ----------- | -------- |
-| **`data-email_b64`** | Base64 encoded text of your e-mail. You can encode your e-mail [here](https://www.base64encode.org/). | Required |
+| **`data-email_b64`** | Base64 encoded text of your e-mail. You can encode your e-mail [here](https://safe-email.netlify.app/). | Required |
 |  **`data-body`** | Body of the e-mail | Optional, Defaults to `Hi!` |
 |  **`data-subject`** | Subject of the e-mail | Optional,  Defaults to root domain name + path, e.g. `abc.com/path` |
 

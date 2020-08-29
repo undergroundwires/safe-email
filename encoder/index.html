@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" >
+    <title>Base64 converter | safe-email</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">safe-email</h1>
+        <div><a target="_blank" rel="noopener" href="https://github.com/undergroundwires/safe-email">source code</a></div>
+        <input class="input" type="text" maxlength="254" id="input" placeholder="Type your email (e.g. email@gmail.com)"
+            data-on-input="onInputChanged($event)">
+        <div class="error" data-if="encodedText && !isValidEmail">
+            Invalid email
+        </div>
+        <div class="result" data-if="encodedText">
+            <h2>Encoded</h2>
+            <div class="encoded text">{{ encodedText }}</div>
+            <button class="copy" onclick="copyText('encodedText')">Copy</button>
+        </div>
+        <div class="result" data-if="exampleSimple">
+            <h2>HTML</h2>
+            <pre class="code text">{{ exampleSimple }}</pre>
+            <button class="copy" onclick="copyText('exampleSimple')">Copy</button>
+            <div>
+                See <a target="_blank" rel="noopener" href="https://github.com/undergroundwires/safe-email#usage">README</a>
+                for usage and more examples 
+            </div>
+        </div>
+    </div>
+    <script src="binding.js"></script>
+</body>
+<script type="text/javascript">
+    const state = dataBinding({
+        encodedText: '',
+        exampleSimple: '', 
+        isValidEmail: false,
+    });
+    function onInputChanged(value) {
+        if(value && value.length > 254) {
+            const errorText = 'Too long 😱';
+            state.encodedText = errorText
+            state.exampleSimple = errorText;
+            return;
+        }
+        state.encodedText = btoa(value);
+        state.exampleSimple = `<a title="Email" href="#" data-email_b64="${state.encodedText}"></a>`;
+        state.isValidEmail = validateEmail(value);
+    }
+    function copyText(key) {
+        const input = document.createElement('textarea');
+        document.body.appendChild(input);
+        input.value = state[key];
+        input.focus();
+        input.select();
+        document.execCommand('Copy');
+        input.remove();
+    }
+    function validateEmail(email) {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+</script>
+
+</html>

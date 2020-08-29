@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #313E50;
+    color: white;
+}
+a {
+    color:inherit;
+}
+.container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.container > *:not(:last-child) {
+    margin-bottom: 10px; 
+} 
+.input {
+    height: 40px;
+    font-size: 1rem;
+    padding-left:20px;
+    width: 90%;
+    max-width: 400px;
+}
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.result > *:not(:last-child) {
+    margin-bottom: 10px; 
+} 
+.title {
+    text-transform: uppercase;
+}
+.error {
+    color: red;
+}
+.text {
+    overflow-wrap: break-word;
+    word-break: break-all;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.code {
+    white-space: pre-wrap;
+}
+.encoded {
+    font-size:2rem;
+}
+.copy {
+    background-color: #38AFDD;
+    border: transparent;
+    border-bottom: 2px solid #0086B7;
+    border-radius: 2px;
+    padding: 10px;
+    min-width: 100px;
+    color: white;
+}
+.copy:hover, .copy:focus{
+    background-color: #48A1C1;
+    border-bottom: 2px solid #38AFDD;
+    transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition:all .3s ease-in;
+    -o-transition: all .3s ease-in;
+}
