@@ -4,7 +4,7 @@
   "description": "Easy way to obfuscate e-mails to protect them from spams through scraping bots",
   "main": "src/safe-email.js",
   "scripts": {
-    "compile": "npx google-closure-compiler --js=safe-email.js --js_output_file=dist/safe-email.js --debug --formatting=PRETTY_PRINT && npx google-closure-compiler --js=safe-email.js --js_output_file=dist/safe-email.min.js",
+    "compile": "node node_modules/google-closure-compiler/cli.js --js=safe-email.js --js_output_file=dist/safe-email.js --debug --formatting=PRETTY_PRINT && node node_modules/google-closure-compiler/cli.js --js=safe-email.js --js_output_file=dist/safe-email.min.js",
     "test": "echo \"No test specified\"",
     "lint-js": "eslint .",
     "lint-md": "markdownlint **/*.md --ignore node_modules",
