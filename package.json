@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "npx google-closure-compiler --js=safe-email.js --js_output_file=dist/safe-email.js --debug --formatting=PRETTY_PRINT && npx google-closure-compiler --js=safe-email.js --js_output_file=dist/safe-email.min.js",
     "test": "echo \"No test specified\"",
-    "lint-js": "lynt --env \"browser\"",
+    "lint-js": "eslint .",
     "lint-md": "markdownlint **/*.md --ignore node_modules",
     "lint-md-urls-relative": "remark . --frail --use remark-validate-links",
     "lint-md-consistency": "remark . --frail --use remark-preset-lint-consistent"
@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/undergroundwires/safe-email#readme",
   "devDependencies": {
-    "google-closure-compiler": "^20200719.0.0",
-    "lynt": "^0.5.5",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.0",
+    "google-closure-compiler": "^20210808.0.0",
     "markdownlint-cli": "^0.28.1",
     "remark-cli": "^10.0.0",
     "remark-lint-no-dead-urls": "^1.1.0",
