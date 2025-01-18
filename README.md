@@ -31,7 +31,13 @@ Easy way to obfuscate e-mails to have spam protection against scraping bots.
 It's the simplest way. Just add it to your page:
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/safe-email@1.1.1/dist/safe-email.min.js"></script>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/safe-email@1.1.1/dist/safe-email.min.js"
+  defer
+  async
+>
+</script>
 ```
 
 ### Option B: Install
@@ -44,7 +50,12 @@ It's the simplest way. Just add it to your page:
 - ❗ Only CDN and NPM solutions will have minified files with polyfills (`dist/` folder)
 
 ```html
-<script type="text/javascript" src="/node_modules/safe-email/dist/safe-email.min.js"></script>
+<script
+  type="text/javascript"
+  src="/node_modules/safe-email/dist/safe-email.min.js"
+  defer
+  async
+></script>
 ```
 
 *[top↑](#safe-email)*
